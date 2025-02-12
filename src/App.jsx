@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { TimerClean } from "./components/TimerClean";
+import TimerDirty from "./components/TimerDirty";
+import { useTimer } from "./components/useTimer";
 export default function App() {
   // const numbers = [1, 2, 3, 4, 5];
-
   // // const doubledNumbers = numbers.map((number) => number * 3);
   // // console.log(doubledNumbers);
-
   // const numberList = numbers.map((number) => <li key={number}>{number}</li>);
-
   // return <ul>{numberList}</ul>;
-
   // INLINE method instead of creating a separate var numberList
   // const numbers = [1, 2, 3, 4, 5];
-
   // return (
   //   <ul>
   //     {numbers.map((number) => (
@@ -19,13 +17,9 @@ export default function App() {
   //     ))}
   //   </ul>
   // );
-
   // -------------- USEEFFECT WORKSHOP
-
   // JSON Placeholder todos API
-
   // const [items, setItems] = useState([]);
-
   // useEffect(() => {
   //   async function fetchData() {
   //     const response = await fetch(
@@ -36,7 +30,6 @@ export default function App() {
   //   }
   //   fetchData();
   // }, []);
-
   // return (
   //   <div>
   //     <h1>Items</h1>
@@ -51,33 +44,43 @@ export default function App() {
   //     </ul>
   //   </div>
   // );
-
   // JSON placeholder users API
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/users"
+  //     );
+  //     const data = await response.json();
+  //     setUsers(data);
+  //   }
+  //   fetchData();
+  // }, []);
+  // return (
+  //   <div>
+  //     <h1>List of Users</h1>
+  //     <ul>
+  //       {users.map((user) => (
+  //         <li key={user.id}>
+  //           {user.name} {user.email} <br />
+  //           {user.address.city}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   </div>
+  // );
+  // <TimerDirty />;
+  // TimerDirty();
+  // <TimerClean />;
+  // TimerClean();
+  // <useTimer />;
+  // useTimer();
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      const data = await response.json();
-      setUsers(data);
-    }
-    fetchData();
-  }, []);
-
+  const count = useTimer();
   return (
     <div>
-      <h1>List of Users</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.name} {user.email} <br />
-            {user.address.city}
-          </li>
-        ))}
-      </ul>
+      <h1>Timer</h1>
+      <div>Count:{count}</div>
     </div>
   );
 }
